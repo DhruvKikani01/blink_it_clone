@@ -4,6 +4,7 @@ import 'package:blink_it_clone/Domain/constants/appcolors.dart';
 import 'package:blink_it_clone/Domain/constants/constants.dart';
 import 'package:blink_it_clone/Reposatory/widgets/uihelper.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -13,12 +14,23 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+  late SharedPreferences _preferences;
+
+  bool isLogin = false;
+
+  Future _initSharedPreferences() async {
+    _preferences = await SharedPreferences.getInstance();
+    isLogin = _preferences.getBool("isLogin") ?? false;
+  }
 
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3),(){
-      Navigator.pushReplacementNamed(context, routeLoginscreen);
+    _initSharedPreferences();
+    Timer(Duration(seconds: 3), () {
+      isLogin
+          ? Navigator.pushReplacementNamed(context, routeButtomNavScreen)
+          : Navigator.pushReplacementNamed(context, routeLoginscreen);
     });
   }
 
@@ -29,9 +41,7 @@ class _SplashscreenState extends State<Splashscreen> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Uihelper.CustomImage(img: "first.png")
-          ],
+          children: [Uihelper.CustomImage(img: "first.png")],
         ),
       ),
     );

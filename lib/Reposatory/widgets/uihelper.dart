@@ -19,7 +19,8 @@ class Uihelper {
           color: color,
           fontWeight: fontweight,
           fontFamily: fontFamily,
-          fontSize: fontSize),
+          fontSize: fontSize,
+      ),
     );
   }
 

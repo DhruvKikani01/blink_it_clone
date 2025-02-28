@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../Domain/constants/constants.dart';
 import '../../widgets/uihelper.dart';
 
 class Homescreen extends StatefulWidget {
@@ -9,6 +10,7 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+
   TextEditingController searchcontroller = TextEditingController();
 
   var diwaliitems = [
@@ -19,11 +21,11 @@ class _HomescreenState extends State<Homescreen> {
   ];
 
   var grocerykitchen = [
-    {"img": "image1.png", "text": "Vegetables & \nFruites"},
-    {"img": "image2.png", "text": "Atta, Dal & \nRice"},
-    {"img": "image3.png", "text": "Oil, Ghee & \nMasala"},
-    {"img": "image4.png", "text": "Dairy, Bread & \nMilk"},
-    {"img": "image5.png", "text": "Biscuits & \nBakery"},
+    {"img": "image1.png", "text": "Vegetables & \nFruites", "route": "routeVegetablesandfruitsScreen"},
+    {"img": "image2.png", "text": "Atta, Dal & \nRice", "route": "routeAttadalriceScreen"},
+    {"img": "image3.png", "text": "Oil, Ghee & \nMasala", "route": "routeOilgheemasala"},
+    {"img": "image4.png", "text": "Dairy, Bread & \nMilk", "route": "routeDairybreadmilkScreen"},
+    {"img": "image5.png", "text": "Biscuits & \nBakery", "route": "routeBiscuitsbakeryScreen"},
   ];
 
   @override
@@ -97,16 +99,21 @@ class _HomescreenState extends State<Homescreen> {
                 ],
               ),
             ),
-            const Positioned(
+            Positioned(
               top: 80,
-              left: 400,
-              child: CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.black,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 30,
+              left: 420,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, routeRegisterDetails);
+                },
+                child: const CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.black,
+                    size: 30,
+                  ),
                 ),
               ),
             ),
@@ -393,14 +400,19 @@ class _HomescreenState extends State<Homescreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      width: 71,
-                      height: 78,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color(0XFFD9EBEB)),
-                      child: Uihelper.CustomImage(
-                          img: grocerykitchen[index]["img"].toString()),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, grocerykitchen[index]["route"].toString());
+                      },
+                      child: Container(
+                        width: 71,
+                        height: 78,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color(0XFFD9EBEB)),
+                        child: Uihelper.CustomImage(
+                            img: grocerykitchen[index]["img"].toString()),
+                      ),
                     ),
                   ),
                   Uihelper.CustomText(

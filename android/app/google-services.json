@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "326583643343",
+    "project_id": "blinkit-26b18",
+    "storage_bucket": "blinkit-26b18.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326583643343:android:5f061d2f5326ec6d5d5bba",
+        "android_client_info": {
+          "package_name": "com.example.blinkitclone.blink_it_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "326583643343-7galofvc2cc58enk6tvr1klav4l3fbcm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blinkitclone.blink_it_clone",
+            "certificate_hash": "8c278872dd4686a772e8afa4e3b2ac567ca44d35"
+          }
+        },
+        {
+          "client_id": "326583643343-83s4dhvlp6spq1faucir18mkhf5i6q3e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGou0tszkqzq5RaDLFZ1chbfQx4ThRpWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "326583643343-83s4dhvlp6spq1faucir18mkhf5i6q3e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

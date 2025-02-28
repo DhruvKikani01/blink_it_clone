@@ -1,3 +1,4 @@
+import 'package:blink_it_clone/Domain/constants/constants.dart';
 import 'package:blink_it_clone/Reposatory/widgets/uihelper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -82,14 +83,19 @@ class _ShoppingscreenState extends State<Shoppingscreen> {
             ),
             Positioned(
               top: 80,
-              left: 400,
-              child: CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.white,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.black,
-                  size: 30,
+              left: 420,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, routeRegisterDetails);
+                },
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.black,
+                    size: 30,
+                  ),
                 ),
               ),
             ),

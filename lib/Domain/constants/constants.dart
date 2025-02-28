@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 const routeLoginscreen = 'routeLoginscreen';
 const routeButtomNavScreen = 'routeButtomNavScreen';
+const routeRegisterDetails = 'routeRegisterDetails';
+const routeVegetablesandfruitsScreen = 'routeVegetablesandfruitsScreen';
+const routeAttadalriceScreen = 'routeAttadalriceScreen';
+const routeOilgheemasala = 'routeOilgheemasala';
+const routeDairybreadmilkScreen = 'routeDairybreadmilkScreen';
+const routeBiscuitsbakeryScreen = 'routeBiscuitsbakeryScreen';
 
 class MySnackBar {
   static showSnackBar(

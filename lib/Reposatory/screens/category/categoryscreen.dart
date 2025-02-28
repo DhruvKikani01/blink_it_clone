@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../Domain/constants/constants.dart';
 import '../../widgets/uihelper.dart';
 
 class Categoryscreen extends StatefulWidget {
@@ -13,11 +14,11 @@ class _CategoryscreenState extends State<Categoryscreen> {
   TextEditingController searchcontroller = TextEditingController();
 
   var grocerykitchen = [
-    {"img": "image1.png", "text": "Vegetables & \nFruites"},
-    {"img": "image2.png", "text": "Atta, Dal & \nRice"},
-    {"img": "image3.png", "text": "Oil, Ghee & \nMasala"},
-    {"img": "image4.png", "text": "Dairy, Bread & \nMilk"},
-    {"img": "image5.png", "text": "Biscuits & \nBakery"},
+    {"img": "image1.png", "text": "Vegetables & \nFruites", "route": "routeVegetablesandfruitsScreen"},
+    {"img": "image2.png", "text": "Atta, Dal & \nRice", "route": "routeAttadalriceScreen"},
+    {"img": "image3.png", "text": "Oil, Ghee & \nMasala", "route": "routeOilgheemasala"},
+    {"img": "image4.png", "text": "Dairy, Bread & \nMilk", "route": "routeDairybreadmilkScreen"},
+    {"img": "image5.png", "text": "Biscuits & \nBakery", "route": "routeBiscuitsbakeryScreen"},
   ];
 
   var secondgrocery = [
@@ -54,20 +55,20 @@ class _CategoryscreenState extends State<Categoryscreen> {
             Container(
               height: 200,
               width: double.infinity,
-              color: Color(0XFFF7CB45),
+              color: const Color(0XFFF7CB45),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 59,
                   ),
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Uihelper.CustomText(
                           text: "Blinkit in",
-                          color: Color(0XFF000000),
+                          color: const Color(0XFF000000),
                           fontweight: FontWeight.bold,
                           fontSize: 12,
                           fontFamily: "bold")
@@ -75,12 +76,12 @@ class _CategoryscreenState extends State<Categoryscreen> {
                   ),
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Uihelper.CustomText(
                           text: "16 minutes",
-                          color: Color(0XFF000000),
+                          color: const Color(0XFF000000),
                           fontweight: FontWeight.bold,
                           fontSize: 20,
                           fontFamily: "bold")
@@ -88,25 +89,25 @@ class _CategoryscreenState extends State<Categoryscreen> {
                   ),
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Uihelper.CustomText(
                           text: "HOME - ",
-                          color: Color(0XFF000000),
+                          color: const Color(0XFF000000),
                           fontweight: FontWeight.bold,
                           fontSize: 12,
                           fontFamily: "bold"),
                       Uihelper.CustomText(
                           text: "Dhruv Kikani, Venu Tower, 1st floor, 102",
-                          color: Color(0XFF000000),
+                          color: const Color(0XFF000000),
                           fontweight: FontWeight.normal,
                           fontSize: 12,
                           fontFamily: "regular"),
-                      SizedBox(
+                      const SizedBox(
                         width: 2,
                       ),
-                      Icon(Icons.arrow_drop_down)
+                      const Icon(Icons.arrow_drop_down)
                     ],
                   )
                 ],
@@ -114,14 +115,19 @@ class _CategoryscreenState extends State<Categoryscreen> {
             ),
             Positioned(
               top: 80,
-              left: 400,
-              child: CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.white,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.black,
-                  size: 30,
+              left: 420,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, routeRegisterDetails);
+                },
+                child: const CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.black,
+                    size: 30,
+                  ),
                 ),
               ),
             ),
@@ -142,7 +148,7 @@ class _CategoryscreenState extends State<Categoryscreen> {
             ),
             Uihelper.CustomText(
                 text: "Grocery & Kitchen",
-                color: Color(0XFF000000),
+                color: const Color(0XFF000000),
                 fontweight: FontWeight.bold,
                 fontSize: 16,
                 fontFamily: "bold")
@@ -156,19 +162,24 @@ class _CategoryscreenState extends State<Categoryscreen> {
           child: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               itemBuilder: (context, int index) => Column(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      width: 71,
-                      height: 78,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color(0XFFD9EBEB)),
-                      child: Uihelper.CustomImage(
-                          img: grocerykitchen[index]["img"].toString()),
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.pushNamed(context, grocerykitchen[index]["route"].toString());
+                      },
+                      child: Container(
+                        width: 71,
+                        height: 78,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color(0XFFD9EBEB)),
+                        child: Uihelper.CustomImage(
+                            img: grocerykitchen[index]["img"].toString()),
+                      ),
                     ),
                   ),
                   Uihelper.CustomText(
@@ -190,7 +201,7 @@ class _CategoryscreenState extends State<Categoryscreen> {
           child: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               itemBuilder: (context, int index) => Column(
                 children: [
                   Padding(
@@ -230,7 +241,7 @@ class _CategoryscreenState extends State<Categoryscreen> {
             ),
             Uihelper.CustomText(
                 text: "Snacks & Drinks",
-                color: Color(0XFF000000),
+                color: const Color(0XFF000000),
                 fontweight: FontWeight.bold,
                 fontSize: 16,
                 fontFamily: "bold")
@@ -244,7 +255,7 @@ class _CategoryscreenState extends State<Categoryscreen> {
           child: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               itemBuilder: (context, int index) => Column(
                 children: [
                   Padding(
@@ -283,7 +294,7 @@ class _CategoryscreenState extends State<Categoryscreen> {
             ),
             Uihelper.CustomText(
                 text: "Household Essentials",
-                color: Color(0XFF000000),
+                color: const Color(0XFF000000),
                 fontweight: FontWeight.bold,
                 fontSize: 16,
                 fontFamily: "bold")
@@ -297,7 +308,7 @@ class _CategoryscreenState extends State<Categoryscreen> {
           child: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               itemBuilder: (context, int index) => Column(
                 children: [
                   Padding(
